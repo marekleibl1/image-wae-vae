@@ -1,31 +1,30 @@
 
 # Variational and Wasserstein Image Autoencodes 
 
-The purpose of this project is to compare two types of regularized autoencoders: Variational Autoencoder (VAE) and Wasserstein Autoencoder (WAE). 
+The purpose of this repository is to compare two types of regularized autoencoders: Variational Autoencoder (VAE) and Wasserstein Autoencoder (WAE). 
 
-The comparison will done both theoretically on a couple of datasets to see where we get better results with VAE and where with WAE. At the moment only MNIST is used (work in progress). 
+The comparison will done both theoretically and experimentally on a couple of datasets. At the moment only MNIST is used (work in progress). 
 
 ## Introduction
 
 There're many benefits of using regularized autoencoders: easier sampling, stable training and more regular latent structure. 
 
-VAE and WAE both minimize two terms: reconstruction and the discrepancy 
-between the distribution of latent codes and the prior (usually normal distr). 
+VAE and WAE both minimize two terms: reconstruction and a discrepancy 
+between the latent distribution and the prior (usually normal distr). 
+The main differences between VAE and WAE are 1) how we measure the discrepancy from our prior and 2) whether we have a stochastic encoder.
 
-A couple of differences between VAE and WAE are 1) how we measure the discrepancy from our prior and 2) whether we need a stochastic encoder.
+VAEs are the most popular type of regularized autoencoders. This might be because KL-divergence is more commonly used in machine learning, which makes it easier to understand for most. 
 
-VAEs are currently the most popular type of regularized autoencoders. This might be because KL-divergence is more common in machine learning so they may be easier to understand. 
-
-WAE may be a better choice for certain problems, where Wasserstein distance is more suitable than KL-divergence. In addition to that, WAE-MMD variant is in my opinion easier to implement (no need to have a stochastic encoder, just adding MMD loss term). 
+WAE may be a better choice for certain problems, where Wasserstein distance is more suitable. In addition to that, WAE-MMD variant is  easier to implement in my opinion (no need to have a stochastic encoder, just adding MMD loss term). 
 
 
 ## Overview 
 
-The following text explains both VAE and WAE - starting from training algorithms followed by a bit more theory behind the models.
+In the following text I'll try to explains both VAE and WAE: Starting from training algorithms followed by a bit more theory behind the models.
 
-After that there'll be implementaion details and instructions to setup the project (work in progress). 
+Instructions to setup the project are currently work in progress. 
 
-Most importantly, I include experimental comparison between VAE, WAE and vanilla autoencoder on MNIST dataset. 
+I include experimental comparison between VAE, WAE and vanilla autoencoder on MNIST dataset. 
 
 
 <!-- 
@@ -42,7 +41,7 @@ TODO links to papers
 
 I'll start with practical perspective - to be able to implement them. Later, I'll try to briefly explain formal definition and theory behind VAE.  -->
 
-From practical perspective, we can see VAE as a mofification of classical vanilla autoencoder with with two main changes: 1) stochastic encoder and 2) regularization.
+From practical perspective, we can see VAE as a modification of classical vanilla autoencoder with with two main changes: 1) stochastic encoder and 2) regularization.
 
 #### Stochastic encoder
 
@@ -55,7 +54,7 @@ The easiest way to implement VAE encoder is:
    - $\mu_x$ ... mean vector  
    - $\log(\sigma_x)$ ... log variance vector  
  - The final encoder output is: 
-   - $ z = \mu_x + \sigma_x * \epsilon $, where $\epsilon \sim N(0, I)$ 
+   - $z=\mu_x+\sigma_x\epsilon$, where $\epsilon \sim N(0, I)$ 
 
 For inference with the trained model, we usually make the encoder deterministic by only using the mean value $z=\mu_x$. 
 
