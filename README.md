@@ -142,19 +142,11 @@ To be able to compute gradients, we need to move all "randomness" into our input
 We start with sampling random image X and noise $\epsilon \sim N(0, I)$. After that the rest of the computation is deterministic. 
 
 We exppress z as: 
-$$ 
-z_{x, \epsilon} = \mu_x + \sigma_x * \epsilon  
-$$
-
-
-#### Final Training Algorithm 
+$$z_{x, \epsilon} = \mu_x + \sigma_x * \epsilon$$
 
 Now, we can rewrite our ELBO loss as: 
 
-$$
-L_{ELBO} = E_{X}[ E_z [...] 
-- D_{KL} (Q(z | X) || P(z))  ]  
-$$
+$$L_{ELBO} = E_{X}[ E_z [...] - D_{KL} (Q(z | X) || P(z))  ]$$
 
 From this we derive our training algorithm. 
 
