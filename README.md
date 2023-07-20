@@ -66,10 +66,8 @@ $$L = L_{rec} + L_{reg}$$
 The reconstruction loss $L_{rec}$ is the same MSE loss used in classical autoencoders. 
 
 The regularization loss $L_{rec}$ is based on deviation of your encoder output distribution ($N(\mu, \sigma ^2 I)$) from our wanted prior distribution ($N(0,I)$). The deviation is measured as the following KL-divergence: 
-$$ 
-L_{reg} = D_{KL}( N(\mu, \sigma ^2 I), N(0, I)) \\
-=\frac{1}{2} \sum_{i=0}^k \left(\sigma_i^2 + \mu_i^2 - 2 \log(\sigma_i) - 1\right)
-$$
+$$L_{reg} = D_{KL}( N(\mu, \sigma ^2 I), N(0, I)) \\
+=\frac{1}{2} \sum_{i=0}^k \left(\sigma_i^2 + \mu_i^2 - 2 \log(\sigma_i) - 1\right)$$
 
 
 Minimization of the KL-divergence leads to  approximately normal distribution of our latent vectors after training. This is easy to compute as $\mu$ and $\log(\sigma)$ are outputs of our encoder neural network. 
