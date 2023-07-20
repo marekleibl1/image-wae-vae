@@ -1,0 +1,6 @@
+
+numpy
+matplotlib
+scikit-learn
+tensorflow
+tqdm==4.65.0
