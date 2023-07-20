@@ -77,14 +77,13 @@ Final VAE Training Step:
  1. Sample image x
  2. Sample noise vector $\epsilon \sim N(0, I)$
  3. Evaluate encoder:
- $$\mu_x, log(\sigma) = Encoder(x)  $$
+ $$\mu_x,log(\sigma)=Encoder(x)$$
  4. Compute latent vector z:
- $$ z = \mu_x + \sigma_x * \epsilon $$
+ $$z = \mu_x + \sigma_x * \epsilon$$
  5. Compute reconstruction:
-$$ \hat x = Decoder(z) $$
+$$\hat x = Decoder(z)$$
  6. Compute reconstruction error (MSE)
- 7. Compute regularization error 
-   TODO math formal 
+ 7. Compute regularization error  
  8. Update encoder and decoder parameters. 
 
 For simplicity I assumed batch of size one. In practice, we usually sample a batch of multiple images.  
@@ -128,12 +127,8 @@ The first term is log-likelihood we want to maximize. The second term in KL-dive
 
 Instead of computing ELBO directly we use the following form:
 
-$$ 
-\log P(X) - 
-D_{KL} (Q(z | X) || P(z | X)) 
-\\= \\ E_{z \sim Q}[ log P(X | z)]
-- D_{KL} (Q(z | X) || P(z)) 
-$$
+$$\log P(X) - D_{KL} (Q(z | X) || P(z | X))$$
+$$= \\ E_{z \sim Q}[ log P(X | z)]- D_{KL} (Q(z | X) || P(z))$$
 
 Left side of the equation is what we want to optimize. The right side of the equation is something we can optimize. 
 
