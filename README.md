@@ -56,12 +56,12 @@ The easiest way to implement VAE encoder is:
  - The final encoder output is: 
    - $z=\mu_x+\sigma_x\epsilon$, where $\epsilon \sim N(0, I)$ 
 
-For inference with the trained model, we usually make the encoder deterministic by only using the mean value $z=\mu_x$. 
+For inference with a trained model, we usually make the encoder deterministic by only using the mean value $z=\mu_x$. 
 
 #### Latent Regularization
 
 The second difference from vanilla autoencoder is the loss term. In addition to the reconstruction loss, we add an extra regularization loss. The final loss is defined as follows:
-$$ L = L_{rec} + L_{reg} $$ 
+$$L = L_{rec} + L_{reg}$$ 
 
 The reconstruction loss $L_{rec}$ is the same MSE loss used in classical autoencoders. 
 
