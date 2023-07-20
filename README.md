@@ -148,7 +148,7 @@ Now, we can rewrite our ELBO loss as:
 
 $$L_{ELBO} = E_{X}[ E_z [...] - D_{KL} (Q(z | X) || P(z))  ]$$
 
-From this we derive our training algorithm. 
+Which gives us our training algorithm. 
 
 
 <!-- 
