@@ -5,16 +5,15 @@ The purpose of this repository is to compare two types of regularized autoencode
 
 Regularized autoencoders add an extra loss that enforces the latent distribution to be closer to the given latent prior distribution - usually standard normal. This results in easier sampling, stable training and other benefits. The main differences between VAE and WAE are 1) how we measure the discrepancy from our prior and 2) whether we need a stochastic encoder.
 
-VAEs are the most popular type of regularized autoencoders. On the other hand, WAE may be a better choice for certain problems, where Wasserstein distance is more suitable. Additionally, WAE-MMD variant is easier to implement as there's no need to have an encoder that's stochastic durng the training and deterministic during inference. 
+VAEs are the most popular type of regularized autoencoders. On the other hand, WAE may be a better choice for certain problems, where Wasserstein distance is more suitable. Additionally, WAE-MMD variant is slightly easier to implement as there's no need to have an encoder that's stochastic durng the training and deterministic during inference. 
 
 
 ## Overview 
 
-In the following text I'll try to explains both VAE and WAE: Starting from training algorithms followed by a bit more theory behind the models.
-
-Instructions to setup the project are currently work in progress. 
-
-I include experimental comparison between VAE, WAE and vanilla autoencoder on MNIST dataset. 
+This readme consists of three parts: 
+1) A brief introduction to Variational and Wasserstein autoencoders.
+2) Instructions to setup the project (work in progress).
+3) Experimental comparison on MNIST. 
 
 
 <!-- 
