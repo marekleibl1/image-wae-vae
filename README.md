@@ -26,26 +26,27 @@ TODO links to papers
 
 <!-- add an images from the paper -->
 
-<!-- Here I'm going to give a brief explanation of variational autoencoders (VAE). 
+<!-- 
+Here I'm going to give a brief explanation of variational autoencoders (VAE). 
 
-I'll start with practical perspective - to be able to implement them. Later, I'll try to briefly explain formal definition and theory behind VAE.  -->
+I'll start with practical perspective - to be able to implement them. Later, I'll try to briefly explain formal definition and theory behind VAE.  
+-->
 
-From practical perspective, we can see VAE as a modification of classical vanilla autoencoder with with two main changes: 1) stochastic encoder and 2) regularization.
+We can see VAE as vanilla autoencoder with two modifications: 1) stochastic encoder and 2) regularization.
 
 #### Stochastic encoder
 
-Unlike vanilla autoencoder, VAE encoder outputs a random variable  
-$z \sim N(\mu_x, \sigma_x^2 I)$, where $\mu_x$ and $\sigma_x^2$  depend on the given image $x$.
+The output of VAE encoder is a random variable $z \sim N(\mu_x, \sigma_x^2 I)$, where both $\mu_x$ and $\sigma_x^2$ depend on the given image $x$.
 
 The easiest way to implement VAE encoder is: 
- - Add an extra output to the neural network.
+ - Add an extra output to the encoder neural network.
  - Two outputs are then interpreted as: 
    - $\mu_x$ ... mean vector  
    - $\log(\sigma_x)$ ... log variance vector  
  - The final encoder output is: 
    - $z=\mu_x+\sigma_x\epsilon$, where $\epsilon \sim N(0, I)$ 
 
-For inference with a trained model, we usually make the encoder deterministic by only using the mean value $z=\mu_x$. 
+Note that for inference with a trained model, we usually make the encoder deterministic by only using the mean value $z=\mu_x$. 
 
 #### Latent Regularization
 
