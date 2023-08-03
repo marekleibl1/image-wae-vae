@@ -12,17 +12,12 @@ https://github.com/tolstikhin/wae
 
 ## Overview 
 
-This readme consists of three parts: 
-1) A brief introduction to Variational and Wasserstein autoencoders.
-2) Instructions to setup the project (work in progress).
-3) Experimental comparison on MNIST. 
-
-
-<!-- 
-TODO add more images
-TODO links to papers
--->
-
+This readme consists of the following parts: 
+1) A brief introduction to Variational Autoencoders.
+2) A brief introduction to Wasserstein Autoencoders.
+3) Instructions to setup the project (work in progress).
+4) Experimental comparison on MNIST. 
+5) Links to related papers and repositories. 
 
 ## Variational Autoencoders 
 
@@ -416,7 +411,9 @@ When using small latent dimension, most of random samples will corespond to imag
 
 When it comes to VAE vs WAE. From the results, it's not clear which one leads to better results. From practical perspective, WAE is easier to implement as it does not require stochastic encoder, only an extra term in the loss function is needed. 
 
+## References 
 
-<!-- 
-TODO add links to sources here? 
--->
+1. [Tutorial on Variational Autoencoders](https://arxiv.org/abs/1606.05908)
+2. [Wasserstein Auto-Encoders](https://arxiv.org/abs/1711.01558)
+3. [Wasserstein Auto-Encoders (original repository)](https://github.com/tolstikhin/wae)
+
