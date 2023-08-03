@@ -7,6 +7,8 @@ Regularized autoencoders add an extra loss that enforces the latent distribution
 
 VAEs are the most popular type of regularized autoencoders. On the other hand, WAE may be a better choice for certain problems, where Wasserstein distance is more suitable. Additionally, WAE-MMD variant is slightly easier to implement as there's no need to have an encoder that's stochastic durng the training and deterministic during inference. 
 
+Note that: all models here are implemented from scratch in Tensorflow (in 2021), except for MMD loss, which is based on the original WAE implementation: 
+https://github.com/tolstikhin/wae
 
 ## Overview 
 
