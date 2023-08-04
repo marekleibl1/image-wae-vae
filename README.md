@@ -50,16 +50,17 @@ $$=\frac{1}{2} \sum_{i=0}^k \left(\sigma_i^2 + \mu_i^2 - 2 \log(\sigma_i) - 1\ri
 
 $$L_{reg} = D_{KL}( N(\mu, \sigma ^2 I), N(0, I))=\frac{1}{2} \sum_{i=0}^k \left(\sigma_i^2 + \mu_i^2 - 2 \log(\sigma_i) - 1\right)$$
 
-Minimization of the KL-divergence leads to  approximately normal distribution of our latent vectors after training. This is easy to compute as $\mu$ and $\log(\sigma)$ are outputs of our encoder neural network. 
+Minimization of the KL-divergence leads to approximately normal distribution of our latent vectors after training. This is easy to compute as $\mu$ and $\log(\sigma)$ are outputs of the encoder neural network. 
 
+#### VAE Training Algorithm
+
+When we combine the two modifications, we get the following training algorithm: 
 
 Final VAE Training Step:
- 1. Sample image x
- 2. Sample noise vector $\epsilon \sim N(0, I)$
+ 1. Sample image x from the given training dataset and random noise $\epsilon \sim N(0, I)$
  3. Evaluate encoder:
- $$\mu_x,log(\sigma)=Encoder(x)$$
- 4. Compute latent vector z:
- $$z = \mu_x + \sigma_x * \epsilon$$
+ - $$\mu_x,log(\sigma)=Encoder(x)$$
+ - $$z = \mu_x + \sigma_x * \epsilon$$
  5. Compute reconstruction:
 $$\hat x = Decoder(z)$$
  6. Compute reconstruction error (MSE)
