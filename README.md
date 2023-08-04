@@ -3,11 +3,11 @@
 
 The purpose of this repository is to compare two types of regularized autoencoders: Variational Autoencoder (VAE) and Wasserstein Autoencoder (WAE). 
 
-Regularized autoencoders add an extra loss that enforces the latent distribution to be closer to the given latent prior distribution - usually standard normal. This results in easier sampling, stable training and other benefits. The main differences between VAE and WAE are 1) how we measure the discrepancy from our prior and 2) whether we need a stochastic encoder.
+Regularized autoencoders add an extra loss that enforces the latent distribution to be closer to the given latent prior (e.q. standard normal distribution). This results in easier sampling, stable training and other benefits. The main differences between VAE and WAE are 1) how we measure the discrepancy from our prior and 2) whether we need a stochastic encoder.
 
-VAEs are the most popular type of regularized autoencoders. On the other hand, WAE may be a better choice for certain problems, where Wasserstein distance is more suitable. Additionally, WAE-MMD variant is slightly easier to implement as there's no need to have an encoder that's stochastic durng the training and deterministic during inference. 
+VAEs are the most popular type of regularized autoencoders. On the other hand, WAE may be a better choice for certain problems, where Wasserstein distance is more suitable. Additionally, WAE-MMD variant is slightly easier to implement as there's no need to have an encoder that behaves differently during the training and inference. 
 
-Note that: all models here are implemented from scratch in Tensorflow (in 2021), except for MMD loss, which is based on the original WAE implementation: 
+Note that: all models here are implemented from scratch in Tensorflow, except for MMD loss, which is based on the original WAE implementation: 
 https://github.com/tolstikhin/wae
 
 ## Overview 
