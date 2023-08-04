@@ -94,10 +94,10 @@ Maximum likelihood for latent variable models such as $P(X; \theta)$ is not gene
 Optimizing $P(X; \theta)$ is not generally tractable. The problem is that to compute $P(X; \theta)$, we would need to compute an integral over all possible values of latent vector $z$. 
 -->
 
-A naive solution to estimate the integral would be sampling random vectors $z$. The problem here is that for most latent vectors $P(X | z)$ will be close to zero. Thus, a large number of samples would be required, which would be intractable for larger latent dimensions.
+A naive solution to estimate the integral would be sampling random vectors $z$. The problem here is that for most latent vectors, $P(X | z)$ will be close to zero. Thus, a large number of samples would be required, intractable for larger latent dimensions.
 
 A better solution is sampling only $z$ that likely produced the given image $X$. This way $P(X | z)$ will be larger and a smaller number of $z$ samples required. 
-This leads to the stochastic encoder that given an input image $X$ generates latent vector $z$ with high $P(X | z)$. We define $Q(z| X )$ as the distribution of encoder outputs given the image X.  
+In order to find such $z$, we'll train a stochastic encoder that given an input image $X$ generates latent vector $z$ with high $P(X | z)$. We define $Q(z| X )$ as the distribution of encoder outputs given the image X.  
 
 <!-- 
 We define a stochastic encoder that takes input image $X$ and generates latent vector from a distribution  $Q(z| X )$, i.e. that depends on the given image. This will allow us to generate z with high $P(X | z)$. 
