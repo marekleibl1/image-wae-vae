@@ -58,7 +58,7 @@ When we combine the two modifications, we get the following training algorithm:
 
 VAE Training Step:
  1. Sample image x from the given training dataset and random noise $\epsilon \sim N(0, I)$
- 2. Evaluate encoder neural network: $\mu,log(\sigma)=Encoder(x)$
+ 2. Evaluate encoder neural network: $\mu,log(\sigma)=\mathrm{Encoder}(x)$
  3. Sample latent vector: $z = \mu + \sigma * \epsilon$
  5. Evaluate decoder neural network to get reconstructed image: $\hat x = \mathrm{Decoder}(z)$
  6. Compute reconstruction error (MSE): $L_{rec} = L_{rec}(x, \hat x)$
