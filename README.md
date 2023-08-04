@@ -29,7 +29,7 @@ Assuming we have a vanilla autoencoder, we can turn it into VAE with two modific
 
 #### Stochastic encoder
 
-The output of VAE encoder is a random variable $z \sim N(\mu_x, \sigma_x^2 I)$, where both $\mu_x$ and $\sigma_x^2$ depend on the given image $x$. The easiest way to implement VAE encoder is: 
+We want the output of VAE encoder to be a random variable $z \sim N(\mu_x, \sigma_x^2 I)$, where both $\mu_x$ and $\sigma_x^2$ depend on the given image $x$. The easiest way to implement VAE encoder is: 
  - Add an extra output to the encoder neural network.
  - Two outputs are then interpreted as: 
    - $\mu_x$ ... mean vector  
