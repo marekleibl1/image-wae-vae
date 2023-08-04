@@ -30,10 +30,10 @@ Assuming we have a vanilla autoencoder, we can turn it into VAE with two modific
 #### Stochastic encoder
 
 We want the output of VAE encoder to be a random variable $z \sim N(\mu_x, \sigma_x^2 I)$, where both $\mu_x$ and $\sigma_x^2$ depend on the input image $x$. The easiest way to implement VAE encoder is to add an extra output to the encoder neural network. Both outputs can be represented with a single feature vector. Two outputs are then interpreted as: 
-   - $\mu_x$ ... mean vector  
-   - $\log(\sigma_x)$ ... log variance vector  
+   - $\mu_x$: mean vector  
+   - $\log(\sigma_x)$: log variance vector  
 
-The final encoder output is: 
+The final VAE encoder output is: 
    - $z=\mu_x+\sigma_x\epsilon$, where $\epsilon \sim N(0, I)$ 
 
 Note that for inference with a trained model, we usually make the encoder deterministic by only using the mean value $z=\mu_x$. 
