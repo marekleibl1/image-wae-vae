@@ -77,15 +77,14 @@ We start with the following generative model, where we see the given image as a 
 
 $$ P(X; \theta) = \int {P(X | z; \theta) } P(z) dz $$
 
-This gives us the probability of an image $X$ given the generative model with parameters $\theta$, latent vector $z$ and it's prior distribution $P(z)$.
+This tells us how likely is the image given the generative model with parameters $\theta$, latent vector $z$ and it's prior distribution $P(z)$. Our goal will be to find $\theta$ that maximizes this probability over all observed data (https://en.wikipedia.org/wiki/Maximum_likelihood_estimation).
 
+<!--
 Let's consider the following generative model:
-
 $$ P(X; \theta) = \int {P(X | z; \theta) } P(z) dz $$
-
 Where $X$ is a random image, $z$ is latent vector with prior distribution $P(z)$ and $\theta$ model parameters.
-
-This gives us the probability of an image $X$ given the generative model with parameters $\theta$. Our goal is to find $\theta$ that maximizes this probability over all observed data (maximum likelihood).
+This gives us the probability of an image $X$ given the generative model with parameters $\theta$. 
+-->
 
 #### Approximate Inference (Encoder)
 
