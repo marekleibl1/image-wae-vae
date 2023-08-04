@@ -77,7 +77,7 @@ We start with the following generative model, where we see the given image as a 
 
 $$ P(X; \theta) = \int {P(X | z; \theta) } P(z) dz $$
 
-This tells us how likely is the image given the generative model with parameters $\theta$, latent vector $z$ and it's prior distribution $P(z)$. Our goal will be to find $\theta$ that maximizes this probability over all observed data (https://en.wikipedia.org/wiki/Maximum_likelihood_estimation).
+This tells us how likely is the image given the generative model with parameters $\theta$, latent vector $z$ and it's prior distribution $P(z)$. Our goal will be to find $\theta$ that maximizes this probability over all observed data ([https://en.wikipedia.org/wiki/Maximum_likelihood_estimation](Maximum_likelihood_estimation)).
 
 <!--
 Let's consider the following generative model:
