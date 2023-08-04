@@ -19,6 +19,8 @@ This readme is separated into the following parts:
 4) Experiments - VAE and WAE compared on MNIST. 
 5) References to related papers and repositories. 
 
+Unlike most of literature on regularized autoencoders, I'll start with the final training algorithms and then briefly explain the theory behind them. 
+
 ## Variational Autoencoders 
 
 <!-- add an images from the paper -->
