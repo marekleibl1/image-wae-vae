@@ -73,6 +73,12 @@ In the following text, I'll briefly explain motivation behind it and how to deri
 
 #### Problem Statement
 
+We start with the following generative model, where we see the given image as a random variable X:
+
+$$ P(X; \theta) = \int {P(X | z; \theta) } P(z) dz $$
+
+This gives us the probability of an image $X$ given the generative model with parameters $\theta$, latent vector $z$ and it's prior distribution $P(z)$.
+
 Let's consider the following generative model:
 
 $$ P(X; \theta) = \int {P(X | z; \theta) } P(z) dz $$
