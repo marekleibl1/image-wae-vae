@@ -54,19 +54,18 @@ Minimization of the KL-divergence leads to approximately normal distribution of 
 
 #### VAE Training Algorithm
 
-When we combine the two modifications, we get the following training algorithm: 
+When we combine the two modifications, we get the following training algorithm.
 
 VAE Training Step:
  1. Sample image x from the given training dataset and random noise $\epsilon \sim N(0, I)$
  2. Evaluate encoder neural network: $\mu,log(\sigma)=\mathrm{Encoder}(x)$
  3. Sample latent vector: $z = \mu + \sigma * \epsilon$
  5. Evaluate decoder neural network to get reconstructed image: $\hat x = \mathrm{Decoder}(z)$
- 6. Compute reconstruction error (MSE): $L_{rec} = L_{rec}(x, \hat x)$
+ 6. Compute reconstruction error: $L_{rec} = \mathrm{MSE}(x, \hat x)$
  7. Compute regularization error: $L_{reg} = \frac{1}{2} \sum { \left(\sigma_i^2 + \mu_i^2 - 2 \log(\sigma_i) - 1\right) }$  
  8. Update encoder and decoder parameters. 
 
-For simplicity I assumed batch of size one. In practice, we usually sample a batch of multiple images.  
-
+Note that in practice, we usually sample a batch of images instead of a single image.  
 
 ### More Details on VAE
 
