@@ -42,17 +42,9 @@ Note that for inference with a trained model, we usually make the encoder determ
 
 In order to get latent distribution that's close to our prior, we add an additional loss term. Our new loss function will have form: $L = L_{rec} + L_{reg}$, where $L_{rec}$ is the same reconstruction loss (MSE) as used in vanilla autoencoders. 
 
-<!--
-The second difference from vanilla autoencoder is the loss term. In addition to the reconstruction loss, we add an extra regularization loss. The final loss is defined as follows:
-$$L = L_{rec} + L_{reg}$$ 
-
-The reconstruction loss $L_{rec}$ is the same MSE loss used in classical autoencoders. 
---> 
-
-The regularization loss $L_{rec}$ is based on deviation of your encoder output distribution ( $N(\mu,\sigma^2I)$ ) from our wanted prior distribution ( $N(0,I)$ ). The deviation is measured as the following KL-divergence: 
+The regularization loss $L_{reg}$ is KL-divergence between our output distribution $N(\mu,\sigma^2I)$ and prior distribution assuming $N(0,I)$: 
 $$L_{reg} = D_{KL}( N(\mu, \sigma ^2 I), N(0, I))$$
 $$=\frac{1}{2} \sum_{i=0}^k \left(\sigma_i^2 + \mu_i^2 - 2 \log(\sigma_i) - 1\right)$$
-
 
 Minimization of the KL-divergence leads to  approximately normal distribution of our latent vectors after training. This is easy to compute as $\mu$ and $\log(\sigma)$ are outputs of our encoder neural network. 
 
