@@ -67,9 +67,9 @@ VAE Training Step:
 
 Note that in practice, we usually sample a batch of images instead of a single image.  
 
-### More Details on VAE
+### VAE: More Details
 
-In the following, I'll try to give a brief introduction to VAE theory and derive the training algorithm. 
+In the following text, I'll briefly explain motivation behind it and how to derive the training algorithm. 
 
 #### Problem Statement
 
