@@ -69,7 +69,7 @@ Note that in practice, we usually sample a batch of images instead of a single i
 
 ### VAE: More Details
 
-In the following text, I'll briefly explain motivation behind it and how to derive the training algorithm. 
+In the following text, I'll briefly explain motivation behind VAE and how to derive the training algorithm. 
 
 #### Problem Statement
 
@@ -88,13 +88,21 @@ This gives us the probability of an image $X$ given the generative model with pa
 
 #### Approximate Inference (Encoder)
 
+Maximum likelihood for latent variable models such as $P(X; \theta)$ is not generally tractable. The problem is integration over all possible latent vectors $z$ to compute $P(X; \theta)$. Instead of directly optimizing $P(X; \theta)$, we will optimize it's approximation. 
+
+<!-- 
 Optimizing $P(X; \theta)$ is not generally tractable. The problem is that to compute $P(X; \theta)$, we would need to compute an integral over all possible values of latent vector $z$. 
+-->
 
-A naive solution might be sampling random vectors $z$ to estimate the integral. The problem here is that for most latent vectors $P(X | z)$ will be close to zero. 
+A naive solution to estimate the integral would be sampling random vectors $z$. The problem here is that for most latent vectors $P(X | z)$ will be close to zero. Thus, a large number of samples would be required, which would be intractable for larger latent dimensions.
 
-A better solution would be sampling only $z$ likely produced the given image $X$, i.e. $P(X | z)$ will be larger. 
+A better solution is sampling only $z$ that likely produced the given image $X$. This way $P(X | z)$ will be larger and a smaller number of $z$ samples required. 
+This leads to the stochastic encoder that given an input image $X$ generates latent vector $z$ with high $P(X | z)$. We define $Q(z| X )$ as the distribution of encoder outputs given the image X.  
 
+<!-- 
 We define a stochastic encoder that takes input image $X$ and generates latent vector from a distribution  $Q(z| X )$, i.e. that depends on the given image. This will allow us to generate z with high $P(X | z)$. 
+
+--> 
 
 #### Evidence Lower Bound 
 
