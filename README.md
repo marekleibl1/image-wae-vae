@@ -12,12 +12,12 @@ https://github.com/tolstikhin/wae .
 
 ## Overview 
 
-This readme consists of the following parts: 
-1) A brief introduction to Variational Autoencoders.
-2) A brief introduction to Wasserstein Autoencoders.
-3) Instructions to setup the project (work in progress).
-4) Experimental comparison on MNIST. 
-5) Links to related papers and repositories. 
+This readme is separated into the following parts: 
+1) Variational Autoencoders training algorithm.
+2) Wasserstein Autoencoders training algorithm.
+3) Setup instructions (work in progress).
+4) Experiments - VAE and WAE compared on MNIST. 
+5) References to related papers and repositories. 
 
 ## Variational Autoencoders 
 
