@@ -62,7 +62,7 @@ VAE Training Step:
  3. Sample z: $z = \mu_x + \sigma_x * \epsilon$
  5. Evaluate decoder neural network to get reconstructed image: $\hat x = Decoder(z)$
  6. Compute reconstruction error (MSE): $L_{rec} = L_{rec}(x, \hat x)$
- 7. Compute regularization error: $L_{reg} = \frac{1}{2} \sum_{i=0}^k \left(\sigma_i^2 + \mu_i^2 - 2 \log(\sigma_i) - 1\right)$  
+ 7. Compute regularization error: $L_{reg} = \frac{1}{2} \sum^k_{i=0} \left(\sigma_i^2 + \mu_i^2 - 2 \log(\sigma_i) - 1\right)$  
  8. Update encoder and decoder parameters. 
 
 For simplicity I assumed batch of size one. In practice, we usually sample a batch of multiple images.  
