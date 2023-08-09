@@ -147,36 +147,40 @@ $$L_{ELBO} = E_{X}[ E_z [log P(X | z)] - D_{KL} (Q(z | X) || P(z))  ]$$
 
 ## Wasserstein Autoencoders 
 
-Wasserstein Autoencoders (WAE) uses a different approach to regularize latent space. Similarly to VAE, we are given a prior distribution (usually $N(0,I)$). Unlike VAE, a Wasserstein distance is used instead of KL-divergence and encoder is not required to be stochastic. 
+Wasserstein Autoencoders (WAE) use a different approach to regularize latent space. Similarly to VAE, we are given a prior distribution (usually normal dist.). Unlike VAE, a Wasserstein distance is used instead of KL-divergence and encoder is not required to be stochastic. 
 
-There're two alternaive ways to train WAE: WAE-MMD and WAE-GAN. WAE-MMD has more stable training (like VAE), WAE-GAN may produce more visually appealing images. 
 
 <!-- Bried outline -->
 
-### WAE-GAN
+### Types of Wasserstein Autoencoders
 
-Fist way to train Wasserstein autoencoder is by adversarial training. This requires adding one more neural network - latent discriminator that's trained together with encoder and decoder. 
+There're two most common ways to train WAE: WAE-MMD and WAE-GAN. WAE-MMD has more stable training (like VAE), WAE-GAN may produce more visually appealing images. 
 
+#### WAE-GAN
+
+WAE-GAN uses adversarial training. This requires adding one more neural network - latent discriminator that's trained together with encoder and decoder. 
 The discriminator takes latent code z and predicts whether it was produced by encoder or sampled from our prior distribution. It usually has the same number of layers as our encoder and decoder. 
 
+WAE-GAN usually results in higher quality of generated images, but the training may be less stable compared to VAE and WAE-MMD and we need to add an extra neural network. 
+
 <!-- ![alt text](images/wae-gan.png) -->
+
+#### WAE-MMD 
+
+WAE-MMD is easer to implement as it only adds an extra penalty to our loss function - Maximum Mean Discrepancy (MMD). MMD between the latent and prior distribution can be estimated from the produced latent codes (encoded training images) and random vectors sampled from our prior. 
+
+WAE-MMD is suatable for higher dimensial latent spaces, has stable training (as VAE) and it's easy to implement - no need to introduce discriminator or have a stochastic encoder as in VAE. On the other hand, quality of sampled images might be slightly lower compared to WAE-GAN.
+
+<!-- 
+TODO explain more details
+The usual choise for our kernel is a RBF kernel. (formula)
+-->
+
 
 <center>
 <img src="images/wae-gan.png" width="45%">
 <img src="images/wae-mmd.png" width="45%">
 </center>
-
-WAE-GAN usually results in higher quality of sampled (randomly generated) images, but the training may be less stable compared to VAE and WAE-MMD and we need to add an extra neural network. 
-
-### WAE-MMD 
-
-The second variant of Wasserstein autoencoder - WAE-MMD is easer to implement as it only adds an extra penalty to our loss function. 
-
-Maximum Mean Discrepancy (MMD) between our latent and prior distribution can be easily estimated from the produced latent codes and vectors sampled from our prior. 
-
-The usual choise for our kernel is a RBF kernel. (formula)
-
-WAE-MMD is suatable for higher dimensial latent spaces, has stable training (as VAE) and it's easy to implement - no need to introduce discriminator or have a stochastic encoder as in VAE. On the other hand, quality of sampled images might be slightly lower compared to WAE-GAN.
 
 
 ### Wasserstein Distance
