@@ -126,11 +126,7 @@ $$\log P(X) - D_{KL} (Q(z | X) || P(z | X)) = \\ E_{z \sim Q}[ log P(X | z)]- D_
 
 <!--We will assume $N(0,I)$ prior, that's most commonly used. --> 
 
-
-Left side of the equation is what we want to optimize. The right side of the equation is something we can optimize. 
-
-Notice that be maximizing ELBO, we 1) minimize reconstruction loss (as $log P(X | z)$ leads to MSE loss and) and 2) minimize distance from our prior distribution $P(z)$. 
-
+The right side of the equation is something we can compute during the training. If we assum $P(X | z)$ having a normal distribution, $log P(X | z)$ leads to MSE reconstruction loss. The second term $D_{KL} (Q(z | X) || P(z))$ is the latent regularization term as described above.  Therefore, by maximizing ELBO, we 1) minimize reconstruction loss and 2) minimize distance from our prior distribution $P(z)$. 
 
 #### Reparameterization trick
 
