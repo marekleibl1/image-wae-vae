@@ -77,7 +77,7 @@ We start with the following generative model, where we see the given image as a 
 
 $$ P(X; \theta) = \int {P(X | z; \theta) } P(z) dz $$
 
-This tells us how likely is the image given the model with parameters $\theta$. On the right side, we add conditioning on the latent vector $z$ with it's prior distribution $P(z)$. Our goal will be to find $\theta$ that maximizes this probability over all observed data ([Maximum_likelihood_estimation](https://en.wikipedia.org/wiki/Maximum_likelihood_estimation)).
+This tells us how likely is the image given the model with parameters $\theta$. On the right side, we add conditioning on the latent vector $z$ with it's prior distribution $P(z)$. We can see $P(X | z; \theta)$ as a decoder, where $\theta$ are it's weights. Our goal will be to find $\theta$ that maximizes this probability over all observed data ([Maximum_likelihood_estimation](https://en.wikipedia.org/wiki/Maximum_likelihood_estimation)).
 
 <!-- 
 This model corresponds to sampling latent vectors from our prior (e.q. normal distribution) and applying a decoder with distribution P(X | z; \theta).     
