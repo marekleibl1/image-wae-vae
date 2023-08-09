@@ -126,22 +126,24 @@ $$\log P(X) - D_{KL} (Q(z | X) || P(z | X)) = \\ E_{z \sim Q}[ log P(X | z)]- D_
 
 <!--We will assume $N(0,I)$ prior, that's most commonly used. --> 
 
-The right side of the equation is something we can compute during the training. If we assum $P(X | z)$ having a normal distribution, $log P(X | z)$ leads to MSE reconstruction loss. The second term $D_{KL} (Q(z | X) || P(z))$ is the latent regularization term as described above.  Therefore, by maximizing ELBO, we 1) minimize reconstruction loss and 2) minimize distance from our prior distribution $P(z)$. 
+The right side of the equation is something we can compute during the training. If we assume $P(X | z)$ having a normal distribution, $log P(X | z)$ leads to MSE reconstruction loss. The second term $D_{KL} (Q(z | X) || P(z))$ is the latent regularization term as described above.  Therefore, by maximizing ELBO, we 1) minimize reconstruction loss and 2) minimize distance from our prior distribution $P(z)$. 
 
 #### Reparameterization trick
 
-To be able to compute gradients, we need to move all "randomness" into our input.
+The last problem, we need to solve is to move all non-determinism into our input and make our model deterministic in order to be able to compute gradients. 
 
-We start with sampling random image X and noise $\epsilon \sim N(0, I)$. After that the rest of the computation is deterministic. 
+This can be done by expresing z as: $z_{x, \epsilon} = \mu_x + \sigma_x * \epsilon$, where $\epsilon \sim N(0, I)$
 
+<!-- We start with sampling random image X and noise $\epsilon \sim N(0, I)$. After that the rest of the computation is deterministic. 
 We exppress z as: 
 $$z_{x, \epsilon} = \mu_x + \sigma_x * \epsilon$$
 
-Now, we can rewrite our ELBO loss as: 
+-->
+
+Now, we can rewrite our ELBO loss in the final form, which gives us our training algorithm:
 
 $$L_{ELBO} = E_{X}[ E_z [...] - D_{KL} (Q(z | X) || P(z))  ]$$
-
-Which gives us our training algorithm. 
+. 
 
 
 <!-- 
