@@ -50,16 +50,16 @@ $$=\frac{1}{2} \sum_{i=0}^k \left(\sigma_i^2 + \mu_i^2 - 2 \log(\sigma_i) - 1\ri
 
 $$L_{reg} = D_{KL}( N(\mu, \sigma ^2 I), N(0, I))=\frac{1}{2} \sum_{i=0}^k \left(\sigma_i^2 + \mu_i^2 - 2 \log(\sigma_i) - 1\right)$$
 
-Minimization of the KL-divergence leads to approximately normal distribution of our latent vectors after training. This is easy to compute as $\mu$ and $\log(\sigma)$ are outputs of the encoder neural network. 
+Minimization of the KL-divergence leads to approximately normal distribution of our latent vectors after training. The regularization loss is easy to compute as the encoder neural network outputs $\mu$ and $\log(\sigma)$. 
 
 #### VAE Training Algorithm
 
 When we combine the two modifications, we get the following training algorithm.
 
 VAE Training Step:
- 1. Sample image x from the given training dataset and random noise $\epsilon \sim N(0, I)$
+ 1. Sample image x from the given training dataset and random noise vector $\epsilon \sim N(0, I)$
  2. Evaluate encoder neural network: $\mu,log(\sigma)=\mathrm{Encoder}(x)$
- 3. Sample latent vector: $z = \mu + \sigma * \epsilon$
+ 3. This gives us the latent vector: $z = \mu + \sigma * \epsilon$
  5. Evaluate decoder neural network to get reconstructed image: $\hat x = \mathrm{Decoder}(z)$
  6. Compute reconstruction error: $L_{rec} = \mathrm{MSE}(x, \hat x)$
  7. Compute regularization error: $L_{reg} = \frac{1}{2} \sum { \left(\sigma_i^2 + \mu_i^2 - 2 \log(\sigma_i) - 1\right) }$  
@@ -67,7 +67,7 @@ VAE Training Step:
 
 Note that in practice, we usually sample a batch of images instead of a single image.  
 
-### VAE: More Details
+### VAE - More Details
 
 In the following text, I'll briefly explain motivation behind VAE and how to derive the training algorithm. 
 
@@ -77,7 +77,7 @@ We start with the following generative model, where we see the given image as a 
 
 $$ P(X; \theta) = \int {P(X | z; \theta) } P(z) dz $$
 
-This tells us how likely is the image given the generative model with parameters $\theta$, latent vector $z$ and it's prior distribution $P(z)$. Our goal will be to find $\theta$ that maximizes this probability over all observed data ([Maximum_likelihood_estimation](https://en.wikipedia.org/wiki/Maximum_likelihood_estimation)).
+This tells us how likely is the image given the model with parameters $\theta$. On the right side, we add conditioning on the latent vector $z$ with it's prior distribution $P(z)$. Our goal will be to find $\theta$ that maximizes this probability over all observed data ([Maximum_likelihood_estimation](https://en.wikipedia.org/wiki/Maximum_likelihood_estimation)).
 
 <!-- 
 This model corresponds to sampling latent vectors from our prior (e.q. normal distribution) and applying a decoder with distribution P(X | z; \theta).     
