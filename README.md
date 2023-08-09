@@ -163,16 +163,18 @@ We can compare Wasserstein and KL divergence on a simple example of two pairs of
 
 Wasserstein distance is a weaker measure, which means it's more "sensitive" to differences between two probability distributions. Depending on the application, Wasserstein distance can be better choice than KL and can lead to more informed gradients. 
 
-### Types of Wasserstein Autoencoders
+TODO Add more details 
 
-There're two most common ways to train WAE: WAE-MMD and WAE-GAN. WAE-MMD has more stable training (like VAE), WAE-GAN may produce more visually appealing images. 
+### Two Types of Wasserstein Autoencoders
+
+Two most common ways to train WAE are: WAE-MMD and WAE-GAN. WAE-MMD has more stable training (like VAE), WAE-GAN may produce more visually appealing images. 
 
 #### WAE-GAN
 
 WAE-GAN uses adversarial training. This requires adding one more neural network - latent discriminator that's trained together with encoder and decoder. 
 The discriminator takes latent code z and predicts whether it was produced by encoder or sampled from our prior distribution. It usually has the same number of layers as our encoder and decoder. 
 
-WAE-GAN usually results in higher quality of generated images, but the training may be less stable compared to VAE and WAE-MMD and we need to add an extra neural network. 
+WAE-GAN usually results in higher perceptual quality of generated images, but the training may be less stable compared to VAE and WAE-MMD and we need to add an extra neural network. 
 
 <!-- ![alt text](images/wae-gan.png) -->
 
@@ -180,13 +182,16 @@ WAE-GAN usually results in higher quality of generated images, but the training 
 
 WAE-MMD is easer to implement as it only adds an extra penalty to our loss function - Maximum Mean Discrepancy (MMD). MMD between the latent and prior distribution can be estimated from the produced latent codes (encoded training images) and random vectors sampled from our prior. 
 
-WAE-MMD is suatable for higher dimensial latent spaces, has stable training (as VAE) and it's easy to implement - no need to introduce discriminator or have a stochastic encoder as in VAE. On the other hand, quality of sampled images might be slightly lower compared to WAE-GAN.
+WAE-MMD is suatable for higher dimensional latent spaces, has stable training (as VAE) and it's easy to implement - no need to add a discriminator or have stochastic encoder. On the other hand, quality of sampled images might be slightly lower compared to WAE-GAN.
 
 <!-- 
 TODO explain more details
 The usual choise for our kernel is a RBF kernel. (formula)
 -->
 
+#### Training 
+
+More details will be added later. 
 
 <center>
 <img src="images/wae-gan.png" width="45%">
