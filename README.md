@@ -152,6 +152,33 @@ Wasserstein Autoencoders (WAE) use a different approach to regularize latent spa
 
 <!-- Bried outline -->
 
+### Wasserstein Distance
+
+VAE uses KL-divergence, here we use Wasserstein distance instead. 
+
+An intuition behind Wassersten distance (also known as Earth Mover’s distance) is the minimum energy cost of moving a pile of dirt in the shape of one probability distribution to the shape of the other distribution. 
+<!-- 
+TODO download it into repo? 
+TODO give an example - compare with KL? 
+
+![alt text](https://miro.medium.com/v2/resize:fit:4800/format:webp/1*hAyXrelK7JEDV8mimoOspg.png)
+-->
+
+
+Wasserstein distance is a weaker measure, which means it's more "sensitive" to differences between two probability distributions. 
+
+Here's a comparison of Wasserstein and KL divergence on two pairs of discrete probability distribtutions. 
+
+<center>
+<img src="images/Wasserstein-vs-KL.png" width="60%">
+</center>
+
+
+On the left, we have two distributions with high Wasserstein distance. On the right, two distributions with small Wasserstein distance. Notice that in both cases, KL divergence is the same.
+
+Depending on the application, Wasserstein distance can be better choice than KL and can lead to more informed gradients. 
+
+
 ### Types of Wasserstein Autoencoders
 
 There're two most common ways to train WAE: WAE-MMD and WAE-GAN. WAE-MMD has more stable training (like VAE), WAE-GAN may produce more visually appealing images. 
@@ -181,33 +208,6 @@ The usual choise for our kernel is a RBF kernel. (formula)
 <img src="images/wae-gan.png" width="45%">
 <img src="images/wae-mmd.png" width="45%">
 </center>
-
-
-### Wasserstein Distance
-
-VAE uses KL-divergence, here we use Wasserstein distance instead. 
-
-An intuition behind Wassersten distance (also known as Earth Mover’s distance) is the minimum energy cost of moving a pile of dirt in the shape of one probability distribution to the shape of the other distribution. 
-<!-- 
-TODO download it into repo? 
-TODO give an example - compare with KL? 
-
-![alt text](https://miro.medium.com/v2/resize:fit:4800/format:webp/1*hAyXrelK7JEDV8mimoOspg.png)
--->
-
-
-Wasserstein distance is a weaker measure, which means it's more "sensitive" to differences between two probability distributions. 
-
-Here's a comparison of Wasserstein and KL divergence on two pairs of discrete probability distribtutions. 
-
-<center>
-<img src="images/Wasserstein-vs-KL.png" width="60%">
-</center>
-
-
-On the left, we have two distributions with high Wasserstein distance. On the right, two distributions with small Wasserstein distance. Notice that in both cases, KL divergence is the same.
-
-Depending on the application, Wasserstein distance can be better choice than KL and can lead to more informed gradients. 
 
 
 <!-- 
