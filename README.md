@@ -153,25 +153,15 @@ Wasserstein Autoencoders (WAE) use a different approach to regularize latent spa
 
 ### Wasserstein Distance
 
-The intuition behind Wassersten distance (also known as Earth Mover’s distance) is the minimum energy cost required to move a pile of dirt in the shape of one probability distribution to the shape of the other distribution. 
+The intuition behind Wasserstein distance (also known as Earth Mover’s distance) is the minimum energy cost required to move a pile of dirt in the shape of one probability distribution into the shape of the other distribution. 
 
-We can compare Wasserstein and KL divergence on a simple example of two pairs of probability distributions. On the left, we have two distributions with high Wasserstein distance. On the right, two distributions with small Wasserstein distance. Notice that in both cases, KL divergence is the same.
+We can compare Wasserstein and KL divergence on a simple example of two pairs of probability distributions. In this example both pairs have the same KL-divergence, but different Wasserstein distance. On the left, we have two distributions with high Wasserstein distance (to transform the first distribution into second we would need to move a significant amount of probability mass from "1" to "5"). On the right, two distributions have small Wasserstein distance (as moving probability mass from "1" to "2" requires less effort). 
 
 <center>
-<img src="images/Wasserstein-vs-KL.png" width="60%">
+<img src="images/Wasserstein-vs-KL.png" width="40%">
 </center>
 
-
-Wasserstein distance is a weaker measure, which means it's more "sensitive" to differences between two probability distributions. 
-
-Here's a comparison of Wasserstein and KL divergence on two pairs of discrete probability distribtutions. 
-
-
-
-
-
-Depending on the application, Wasserstein distance can be better choice than KL and can lead to more informed gradients. 
-
+From the given example, we can see that Wasserstein distance is a weaker measure. That means it's more "sensitive" to differences between two probability distributions. Depending on the application, Wasserstein distance can be better choice than KL and can lead to more informed gradients. 
 
 ### Types of Wasserstein Autoencoders
 
