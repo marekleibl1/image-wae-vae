@@ -140,18 +140,10 @@ $$z_{x, \epsilon} = \mu_x + \sigma_x * \epsilon$$
 
 -->
 
-Now, we can rewrite our ELBO loss in the final form, which gives us our training algorithm:
+Now, we can rewrite our ELBO loss in the final form, which gives us our VAE training algorithm:
 
-$$L_{ELBO} = E_{X}[ E_z [...] - D_{KL} (Q(z | X) || P(z))  ]$$
+$$L_{ELBO} = E_{X}[ E_z [log P(X | z)] - D_{KL} (Q(z | X) || P(z))  ]$$
 . 
-
-
-<!-- 
-TODO what is autoencoder 
-TODO why use regularization 
- -->
-
-
 
 ## Wasserstein Autoencoders 
 
