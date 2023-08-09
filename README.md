@@ -111,7 +111,7 @@ We define a stochastic encoder that takes input image $X$ and generates latent v
 
 #### Evidence Lower Bound 
 
-Instead of directly maximizing $\log P(X)$, we will maximize it's lower bound, which is easier to compute. 
+Instead of maximul likelihood estimate approach that would maximize $\log P(X)$, we will maximize it's lower bound, which is easier to compute. 
 Evidence Lower Bound (ELBO) is defined as follows:
 
 $$ 
@@ -119,12 +119,13 @@ L_{ELBO} = \log P(X) -
 D_{KL} (Q(z | X) || P(z | X)) 
 $$
 
-The first term is log-likelihood we want to maximize. The second term in KL-divergence that pushes our encoder distribution close to our prior. We will assume $N(0,I)$ prior, that's most commonly used. 
+The first term is log-likelihood we want to maximize, the second term is KL-divergence that pushes our encoder distribution closer to our prior. 
+Instead of computing ELBO directly as defined above, we use the following form:
+$$\log P(X) - D_{KL} (Q(z | X) || P(z | X)) = \\ E_{z \sim Q}[ log P(X | z)]- D_{KL} (Q(z | X) || P(z))$$
 
-Instead of computing ELBO directly we use the following form:
 
-$$\log P(X) - D_{KL} (Q(z | X) || P(z | X))$$
-$$= \\ E_{z \sim Q}[ log P(X | z)]- D_{KL} (Q(z | X) || P(z))$$
+<!--We will assume $N(0,I)$ prior, that's most commonly used. --> 
+
 
 Left side of the equation is what we want to optimize. The right side of the equation is something we can optimize. 
 
