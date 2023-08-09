@@ -147,11 +147,9 @@ $$L_{ELBO} = E_{X}[ E_z [log P(X | z)] - D_{KL} (Q(z | X) || P(z))  ]$$
 
 ## Wasserstein Autoencoders 
 
-Let me explain an another way to regularize autoencoders: Wasserstein Autoencoders (WAE). 
+Wasserstein Autoencoders (WAE) uses a different approach to regularize latent space. Similarly to VAE, we are given a prior distribution (usually $N(0,I)$). Unlike VAE, a Wasserstein distance is used instead of KL-divergence and encoder is not required to be stochastic. 
 
-Similar to VAE, WAE regularize latent space to match our prior distribution (usually $N(0,I)$). The main difference is how we measure the distance from our prior. 
-
-There're two alternaive ways to train WAE: WAE-MMD and WAE-GAN ...
+There're two alternaive ways to train WAE: WAE-MMD and WAE-GAN. WAE-MMD has more stable training (like VAE), WAE-GAN may produce more visually appealing images. 
 
 <!-- Bried outline -->
 
