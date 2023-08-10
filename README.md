@@ -200,15 +200,17 @@ The usual choise for our kernel is a RBF kernel. (formula)
 
 #### Training 
 
-More details will be added later. 
+This part is not finished yet - More details will be added later. 
 
+<img src="images/wae-gan-mmd.png" width="80%">
+
+<!-- 
 <center>
 <img src="images/wae-gan.png" width="45%">
 <img src="images/wae-mmd.png" width="45%">
 </center>
 
 
-<!-- 
 - two allgorithms 
 - compare all methods also with VAE
 - theory (briefly, read more sources  )
@@ -217,13 +219,11 @@ More details will be added later.
    - duality + gan training
    - MMD loss explain briefly in more details  
 - literature 
- -->
-
-
-<!-- 
 Sources 
 
 https://kowshikchilamkurthy.medium.com/wasserstein-distance-contraction-mapping-and-modern-rl-theory-93ef740ae867
+
+ 
  -->
 
 # Project Structure
