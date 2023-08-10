@@ -297,7 +297,7 @@ unregularized vanilla autoencoder.
 First, we compare reconstruction error for all types of models and multiple latent dimensions. The reconstruction error is an average test mean squared error. 
 
 <center>
-<img src="images/res2-reconstruction.png" width="80%">
+<img src="images/res2-reconstruction.png" width="60%">
 </center>
 
 We can see that Vanilla autoencoder has the lowest error. This is expected as it only reconstruction error is minimized during the training.
