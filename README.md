@@ -155,8 +155,16 @@ Wasserstein Autoencoders (WAE) use a different approach to regularize latent spa
 
 The intuition behind Wasserstein distance (also known as Earth Mover’s distance) is the minimum energy cost required to move a pile of dirt in the shape of one probability distribution into the shape of the other distribution. 
 
-The distance between two probability distributions $P_X$ and $P_G$ is based on the optimal transport problem, which is defined as follows: 
-$$W_c(P_X, P_G)=\mathrm{inf}_{\Gamma \in P} \mathop{\mathbb{E}}_{(X,Y) \sim \Gamma} [c(X, Y)]$$ 
+The distance between two probability distributions $P_X$ and $P_G$ is based on the optimal transport problem, which is defined as follows: First, we consider a distribution $\Gamma$, which is joint distribution of $P_X$ and $P_G$ (i.e. it's marginals are $P_X$ and $P_G$) and a cost function $c(x,y)$ that gives are the distance between two samples. We define the overall cost as:    
+$$C(\Gamma)=\mathbb{E}_{(X,Y) \sim \Gamma} [c(X, Y)] $$
+
+From all possible joint distributions of $P_X$ and $P_G$, we want to find the one that matches $P_X$ and $P_G$ as closely as possible.
+$$W_c(P_X, P_G)=\mathrm{inf}_\Gamma C(\Gamma) $$
+
+We can see that, when $P_X=P_G$, the join distribution $\Gamma$ with the minimum cost will have X=Y and the cost will be zero. In case of $c(x,y) = |x-y|$, $W_c$ corresponds to the example with moving pile of dirt. 
+
+
+<!-- $$W_c(P_X, P_G)=\mathrm{inf}_{\Gamma \in P}{\mathop{\mathbb{E}}_{(X,Y) \sim \Gamma} [c(X, Y)]}$$ -->
 
 We can compare Wasserstein and KL divergence on a simple example of two pairs of probability distributions. In this example both pairs have the same KL-divergence, but different Wasserstein distance. On the left, we have two distributions with high Wasserstein distance (to transform the first distribution into second we would need to move a significant amount of probability mass from "1" to "5"). On the right, two distributions have small Wasserstein distance (as moving probability mass from "1" to "2" requires less effort). 
 
