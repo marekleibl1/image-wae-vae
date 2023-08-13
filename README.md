@@ -176,7 +176,7 @@ Wasserstein distance is a weaker measure, which means it's more "sensitive" to d
 
 ### Two Types of Wasserstein Autoencoders
 
-Similarly to VAE, we don't compute Wasserstein distance directly, instead we estimate it. Two most common ways to estimate the distance and train WAE are WAE-MMD and WAE-GAN. WAE-MMD has more stable training (like VAE), WAE-GAN may produce more visually appealing images. 
+There're two most common ways to train Wasserstein: WAE-MMD and WAE-GAN. Each uses a different approach to estimate Wasserstein distance. WAE-MMD has more stable training (like VAE), WAE-GAN may produce more visually appealing images. 
 
 #### WAE-GAN
 
