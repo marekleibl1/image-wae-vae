@@ -180,10 +180,9 @@ There're two most common ways to train Wasserstein: WAE-MMD and WAE-GAN. Each us
 
 #### WAE-GAN
 
-WAE-GAN uses adversarial training. This requires adding one more neural network - latent discriminator that's trained together with encoder and decoder. 
-The discriminator takes latent code z and predicts whether it was produced by encoder or sampled from our prior distribution. It usually has the same number of layers as our encoder and decoder. 
+WAE-GAN uses adversarial training. This requires an additional neural network - latent discriminator that's trained together with encoder and decoder. The discriminator takes latent code z and predicts whether it's an encoded training image or sampled from our prior distribution. It usually has the same number of layers as encoder and decoder. 
 
-WAE-GAN usually results in higher perceptual quality of generated images, but the training may be less stable compared to VAE and WAE-MMD and we need to add an extra neural network. 
+WAE-GAN usually results in higher perceptual quality of generated images, but the downsides are less stable training and the need to add an extra neural network. 
 
 <!-- ![alt text](images/wae-gan.png) -->
 
